@@ -1,20 +1,6 @@
 #include"encoder.h"
 #include"decoder.h"
 #include<map>
-void testBuildingHuffmanTree(){
-    std::map<char, int> freqmap;
-
-    char arr[] = { 'a', 'b', 'c', 'd', 'e', 'f' }; 
-    int freq[] = { 5, 9, 12, 13, 16, 45 }; 
-
-    for (int i = 0; i < sizeof(arr) / sizeof(arr[0]); ++i) {
-        freqmap[arr[i]] = freq[i];
-    }
-
-    HuffmanTree* HFtree = new HuffmanTree(freqmap);
-    huffmanEncoder encoder(HFtree);
-    encoder.printHFtree();
-}
 
 void testRebuildHFtree(){
     std::map<char, int> freqmap;
@@ -59,6 +45,5 @@ void testDecodeFile() {
 int main(){
     // testEncodeFile();
     testDecodeFile();
-    // testRebuildHFtree();
     return 0;
 }

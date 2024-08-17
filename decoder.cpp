@@ -75,20 +75,16 @@ bool huffmanDecoder::decodeFromFile(std::fstream* infile, std::fstream* outfile)
         for(int i = 7; i >= 0; --i) {
             bool bit = buffer & (1 << i);
             if(bit) {
-                std::cout << '1';
                 currentnode = currentnode->right;
             } else {
-                std::cout << '0';
                 currentnode = currentnode->left;
             }
             if(!currentnode->left && !currentnode->right) {
                 outfile->put(currentnode->ch);
-                // std::cout << currentnode->ch;
                 ++charCount;
                 currentnode = HF_tree->root;
             }
         }
-        // std::cout << "\rProgress: " << progress << "%, Current Byte: " << currentPos << " / " << totalBytes << " bytes" << std::flush;
     }
     std::cout << "\ndecoder " << charCount << " characters totally" << totalbitcnt << std::endl;
     return true;

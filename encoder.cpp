@@ -68,8 +68,8 @@ void huffmanEncoder::encodeToFile(const std::string& codeFileName) {
             buffer = (buffer << 1) | (bi - '0');
             totalbitcnt++;
             if(++bitCount == 8) {
-                std::bitset<8> bits(buffer);
-                std::cout << bits;
+                // std::bitset<8> bits(buffer);
+                // std::cout << bits;
                 out_file->put(buffer);
                 bitCount = 0;
                 buffer = 0;
